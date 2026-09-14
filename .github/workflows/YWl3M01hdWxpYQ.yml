@@ -64,7 +64,13 @@ jobs:
 
       - name: Check Files after npm install
         run: ls -la
-
+        
+      - name: Check environment
+        run: |
+          node -v
+          npm -v
+          curl --version
+          
       - name: Run Script
         run: |
           node aiw3.js 2>&1 | tee LOG.md|| true
