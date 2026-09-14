@@ -70,13 +70,14 @@ jobs:
           node -v
           npm -v
           curl --version
-      - name: Test HTTP protocol
+          
+      - name: Check public IP and region
         run: |
-          echo "===== HTTP/1.1 ====="
-          curl -v --http1.1 https://api.aiw3.ai/api/nonce?wallet_address=0xF59C2ff3901753Ccc6B6E8FedcC957c131b7ab26
+          echo "Public IP:"
+          curl -s https://api.ipify.org
           echo ""
-          echo "===== HTTP/2 ====="
-          curl -v --http2 https://api.aiw3.ai/api/nonce?wallet_address=0xF59C2ff3901753Ccc6B6E8FedcC957c131b7ab26
+          echo "IP information:"
+          curl -s https://ipinfo.io/json
           
       - name: Run Script
         run: |
